@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chaudhary Devi Lal University, Sirsa</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f8fc;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 30px;
+      background-color: white;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+    }
+
+    .header-left img {
+      height: 100px;
+      margin-right: 15px;
+    }
+
+    .header-left div {
+      text-align: left;
+    }
+
+    .header-left h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .header-left h2 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    .header-right img {
+      height: 100px;
+    }
+
+    .navbar {
+      background-color: #2f2faa;
+      color: white;
+      padding: 10px;
+      font-weight: bold;
+    }
+
+    .form-container {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .form-box {
+      background-color: white;
+      padding: 30px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .form-box input[type="text"] {
+      padding: 10px;
+      width: 250px;
+      margin-right: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .form-box input[type="submit"] {
+      padding: 10px 20px;
+      background-color: #428bca;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .disclaimer {
+      margin-top: 50px;
+      font-size: 13px;
+      color: #333;
+    }
+
+    .disclaimer b {
+      font-weight: bold;
+    }
+
+    .error {
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="header-left">
+      <img src="CDLU_LOGO.png" alt="CDLU Logo">
+      <div>
+        <h1>चौधरी देवी लाल विश्वविद्यालय, सिरसा</h1>
+        <h2>Chaudhary Devi Lal University, Sirsa</h2>
+        <p>(Established by the State Legislature Act 9 of 2003)</p>
+      </div>
+    </div>
+    <div class="header-right">
+      <img src="CHAUDHARY DEVI LAL PHOTO.png" alt="Chaudhary Devi Lal">
+    </div>
+  </div>
+
+  <div class="navbar">
+    Chaudhary Devi Lal University, Sirsa | Results | Home
+  </div>
+
+  <div class="form-container">
+    <div class="form-box">
+      <form onsubmit="downloadMarksheet(event)">
+        <label for="reg">Registration Number</label><br><br>
+        <input type="text" id="reg" name="reg" required>
+        <input type="submit" value="Submit">
+      </form>
+      <div class="error" id="error-message"></div>
+    </div>
+  </div>
+
+  <div class="disclaimer">
+    <p><b>Disclaimer:</b> University is not responsible for any inadvertent error that may have crept in the results being published on Net. The results published on Net are for immediate information to the examinees. These cannot be treated as original mark sheets.</p>
+  </div>
+
+  <script>
+    function downloadMarksheet(event) {
+      event.preventDefault();
+      const regInput = document.getElementById('reg');
+      const errorDiv = document.getElementById('error-message');
+      const regNumber = regInput.value.trim();
+
+      if (regNumber === "2019035500071513") {
+        const fileURL = "SEMESTER - 6 MARKSHEET.jpeg";
+        const link = document.createElement('a');
+        link.href = fileURL;
+        link.download = fileURL;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        errorDiv.innerText = "";
+      } else {
+        errorDiv.innerText = "Invalid registration number. Please try again.";
+      }
+    }
+  </script>
+
+</body>
+</html>
